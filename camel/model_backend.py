@@ -86,16 +86,17 @@ class OpenAIModel(ModelBackend):
         if not isinstance(response, Dict):
             raise RuntimeError("Unexpected return from OpenAI API")
 
-        cost = prompt_cost(
-                self.model_type.value, 
-                num_prompt_tokens=response["usage"]["prompt_tokens"], 
-                num_completion_tokens=response["usage"]["completion_tokens"]
-        )
+        if self.model_type != ModelType.LOCAL:
+            cost = prompt_cost(
+                    self.model_type.value, 
+                    num_prompt_tokens=response["usage"]["prompt_tokens"], 
+                    num_completion_tokens=response["usage"]["completion_tokens"]
+            )
 
-        log_and_print_online(
-            "**[OpenAI_Usage_Info Receive]**\nprompt_tokens: {}\ncompletion_tokens: {}\ntotal_tokens: {}\ncost: ${:.6f}\n".format(
-                response["usage"]["prompt_tokens"], response["usage"]["completion_tokens"],
-                response["usage"]["total_tokens"], cost))
+            log_and_print_online(
+                "**[OpenAI_Usage_Info Receive]**\nprompt_tokens: {}\ncompletion_tokens: {}\ntotal_tokens: {}\ncost: ${:.6f}\n".format(
+                    response["usage"]["prompt_tokens"], response["usage"]["completion_tokens"],
+                    response["usage"]["total_tokens"], cost))
         return response
 
 
