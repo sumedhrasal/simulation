@@ -89,12 +89,12 @@ To get started, follow these steps:
 ## 🔎 Citation
 
 ```
-@misc{qian2023communicative,
-      title={Communicative Agents for Software Development}, 
-      author={Chen Qian and Xin Cong and Wei Liu and Cheng Yang and Weize Chen and Yusheng Su and Yufan Dang and Jiahao Li and Juyuan Xu and Dahai Li and Zhiyuan Liu and Maosong Sun},
-      year={2023},
-      eprint={2307.07924},
+@misc{rasal2024llm,
+      title={LLM Harmony: Multi-Agent Communication for Problem Solving}, 
+      author={Sumedh Rasal},
+      year={2024},
+      eprint={2401.01312},
       archivePrefix={arXiv},
-      primaryClass={cs.SE}
+      primaryClass={cs.MA}
 }
 ```
